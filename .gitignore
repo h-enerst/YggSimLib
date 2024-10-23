@@ -131,6 +131,9 @@ env.bak/
 venv.bak/
 t1
 t2
+t3
+t4
+t5
 
 # Spyder project settings
 .spyderproject
