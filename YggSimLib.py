@@ -8,7 +8,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import time
 
 
-class askTimeline(simpledialog.Dialog): 
+class _askTimeline(simpledialog.Dialog): 
 
     def __init__(self, root, title, timelines= []):
         self.timelines = timelines
@@ -29,7 +29,7 @@ class askTimeline(simpledialog.Dialog):
     def apply(self):
         pass
         
-class askFiles(simpledialog.Dialog):
+class _askFiles(simpledialog.Dialog):
 
     def __init__(self, root, title, models, parameters, ics):
         self.models = models
@@ -75,7 +75,7 @@ class askFiles(simpledialog.Dialog):
         pass
         
         
-class Valve:
+class On_Off_Valve:
     
     def __init__(self, tag, model, app=False):  
         """Wrapper class for operating block-valves and motor-operated-valves in the Yggdrasil Engineering Simulator"""
@@ -177,7 +177,7 @@ class Valve:
         else:
             print("Unvaild valve object")        
     
-class Motor:
+class Motor_Heater:
 
     def __init__(self, tag, model, app=False):  
         """Wrapper class for operating motors and heaters in the Yggdrasil Engineering Simulator"""
@@ -250,7 +250,7 @@ class Motor:
         """ Returns True if motor/element is switched off """
         return self.tl.get_value(self.app, self.m.name + ":LocalInput") == False
 
-class Controller:
+class PID:
     def __init__(self, tag, model, app=False):  
         """Wrapper class for operating PID controllers in the Yggdrasil Engineering Simulator"""
 
@@ -509,10 +509,10 @@ class YggLCS:
 
         self.model = filedialog.askdirectory(**{"title":"Please select model directory"})
         self.sim = kspice.Simulator(self.model)
-        self.tl = askTimeline(root, "Timelines", self.sim.timelines).tl.get()
+        self.tl = _askTimeline(root, "Timelines", self.sim.timelines).tl.get()
         self.timeline = self.sim.timelines[self.tl]
         self.timeline.activate()
-        files = askFiles(root, "Files", self.timeline.models, self.timeline.parameters, self.timeline.initial_conditions)
+        files = _askFiles(root, "Files", self.timeline.models, self.timeline.parameters, self.timeline.initial_conditions)
         self.model = files.m.get()
         self.parameter = files.p.get()
         self.ic = files.i.get()
@@ -531,19 +531,19 @@ class YggLCS:
         """
         Creates and returns a on-off valve object
         """
-        return Valve(tag, self, app)
+        return On_Off_Valve(tag, self, app)
 
     def motor_heater(self, tag, app=False):
         """
         Creates and returns an electrical element, used for heaters and motors
         """
-        return Motor(tag, self, app)
+        return Motor_Heater(tag, self, app)
 
     def pid(self, tag, app=False):
         """
         Creates and returns a PID controller
         """
-        return Controller(tag, self, app)
+        return PID(tag, self, app)
     
     def choke(self, tag, app=False):
         """        
