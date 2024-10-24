@@ -9,8 +9,8 @@ setup(
   long_description_content_type="text/markdown",
   packages=find_packages(),
   install_requires=[
-    "tk",
-    "networkx"
+    "tk==0.1.0",
+    "networkx==3.4.2"
     ],
   python_requires='>=3.12'
 )
