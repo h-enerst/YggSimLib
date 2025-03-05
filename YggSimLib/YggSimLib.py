@@ -603,18 +603,16 @@ class Sequence:
             step = self.steps[0] 
             while True:
                 if self.verbose:
-                    print("Executing step {}".format(step.number), end="...") 
-                if step.check_conditions():
-                    #print("Conditions all ok", end="...")                
-                    step.execute_actions()
-                    if self.verbose:
-                        print("Executing {} action(s)".format(len(step.st)), end="...")
-                    start = self.sim.timeline.model_time
-                    while not step.check_trans():
-                        time.sleep(1)
-                        end = self.sim.timeline.model_time
-                        if (end-start).seconds > step.tmax:
-                            raise Exception("Step timeout in step number {}".format(step.number))
+                    print("Executing step {}".format(step.number), end="...")                                
+                step.execute_actions()
+                if self.verbose:
+                    print("Executing {} action(s)".format(len(step.st)), end="...")
+                start = self.sim.timeline.model_time
+                while not step.check_trans():
+                    time.sleep(1)
+                    end = self.sim.timeline.model_time
+                    if (end-start).seconds > step.tmax:
+                        raise Exception("Step timeout in step number {}".format(step.number))
                 if self.verbose:
                     print("Step {} executed successfully.".format(step.number))
                 if step.next:
@@ -647,28 +645,11 @@ class Step:
     def __init__(self, config):
         self.failed = False
         self.number = config["number"]
-        self.cond = config["conditions"]
         self.st = config["actions"]
         self.trans = config["transitions"]
         self.tmax = config["tmax"]
         self.next = config["next"]
-
-    def conditions(self):
-        """
-        Returns the list of condition function references
-        """
-        return self.cond
-
-    def check_conditions(self):
-        """
-        All conditions must evaluate to True to continue
-        """
-        for cond in self.cond:
-            
-            if not cond():
-                raise Exception("Condition not met: " + str(cond))
-                return False
-        return True
+  
     def execute_actions(self):
         """
         Executes all actions
