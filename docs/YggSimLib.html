@@ -3,19 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-<meta name="generator" content="pdoc3 0.11.1">
+<meta name="generator" content="pdoc3 0.11.6">
 <title>YggSimLib API documentation</title>
 <meta name="description" content="">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
-<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
 <style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
 <style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
 <script>window.addEventListener('DOMContentLoaded', () => {
 hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
 hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
 })</script>
 </head>
 <body>
@@ -40,13 +51,6 @@ hljs.highlightAll();
 <span>(</span><span>sequences, edges, glob, sim)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Creates an Administration sequence.
-</p>
-<h2 id="arguments">Arguments</h2>
-<p>sequences: A list of Sequence objects
-edges: A list of tuples dictating the dependencies between sequences.
-glob: a copy of the globals dictionary from calling module
-sim: a reference to the YggLCS simulator object from calling module</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -162,12 +166,65 @@ sim: a reference to the YggLCS simulator object from calling module</p></div>
                     if task_name in task_futures:
                         del task_futures[task_name]</code></pre>
 </details>
+<div class="desc"><p>Creates an Administration sequence.
+</p>
+<h2 id="arguments">Arguments</h2>
+<p>sequences: A list of Sequence objects
+edges: A list of tuples dictating the dependencies between sequences.
+glob: a copy of the globals dictionary from calling module
+sim: a reference to the YggLCS simulator object from calling module</p></div>
 <h3>Methods</h3>
 <dl>
 <dt id="YggSimLib.Admin.execute_tasks"><code class="name flex">
 <span>def <span class="ident">execute_tasks</span></span>(<span>self, graph, seq_objects)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def execute_tasks(self, graph, seq_objects):
+    &#34;&#34;&#34;
+    Function that starts all the sequences which has no parent or whos parent has completed. 
+    Parallel sequences are started in separate pseudo threads to enable paralell execution. 
+    Edges in directed graph dicated when a sequence can be started.
+    &#34;&#34;&#34;
+    # Find the start tasks (those that have no predecessors)
+    initial_tasks = [n for n in graph.nodes if graph.in_degree(n) == 0]
+
+    # Initialize an executor for parallel task execution
+    with ThreadPoolExecutor() as executor:
+        # Track futures
+        task_futures = {}
+
+        # Start initial tasks
+        for task_name in initial_tasks:
+            
+            task_futures[task_name] = executor.submit(self.start_sequence, seq_objects[task_name], task_name)
+
+        # As each task finishes, check if we can start dependent tasks
+        while task_futures:
+            for future in as_completed(task_futures.values()):
+                task_name = future.result()  # Get the result (task name)
+                
+                if task_name is None:
+                    raise ValueError(&#34;Error: Task returned None!&#34;)
+
+                # Check if task has successors
+                if task_name in graph:
+                    successors = list(graph.successors(task_name))
+                    for successor in successors:
+                        # Check if all predecessors of the successor have finished
+                        predecessors = list(graph.predecessors(successor))
+                        if all(p in task_futures and task_futures[p].done() for p in predecessors):
+                            # Start successor task
+                            
+                            task_futures[successor] = executor.submit(self.start_sequence, seq_objects[successor], successor)
+
+                # Remove completed task from tracking
+                if task_name in task_futures:
+                    del task_futures[task_name]</code></pre>
+</details>
 <div class="desc"><p>Function that starts all the sequences which has no parent or whos parent has completed.
 Parallel sequences are started in separate pseudo threads to enable paralell execution.
 Edges in directed graph dicated when a sequence can be started.</p></div>
@@ -176,12 +233,33 @@ Edges in directed graph dicated when a sequence can be started.</p></div>
 <span>def <span class="ident">start</span></span>(<span>self)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def start(self):
+    &#34;&#34;&#34;
+    Starts the admin sequence execution
+    &#34;&#34;&#34;
+    self.execute_tasks(self.G, self.seq)</code></pre>
+</details>
 <div class="desc"><p>Starts the admin sequence execution</p></div>
 </dd>
 <dt id="YggSimLib.Admin.start_sequence"><code class="name flex">
 <span>def <span class="ident">start_sequence</span></span>(<span>self, seq, name)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def start_sequence(self, seq, name):
+    &#34;&#34;&#34;
+    Helper function to start a sequence and return the name of the sequence that was started.
+    &#34;&#34;&#34;
+    seq.start()
+    return name</code></pre>
+</details>
 <div class="desc"><p>Helper function to start a sequence and return the name of the sequence that was started.</p></div>
 </dd>
 </dl>
@@ -191,7 +269,6 @@ Edges in directed graph dicated when a sequence can be started.</p></div>
 <span>(</span><span>tag, model, app=False)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Wrapper class for operating Choke objects in the Yggdrasil Engineering Simulator</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -279,24 +356,59 @@ Edges in directed graph dicated when a sequence can be started.</p></div>
     def get_pos(self):
         return self.tl.get_value(self.app, self.c.name + &#34;:ValveStemPosition&#34;, unit=&#34;%&#34;)</code></pre>
 </details>
+<div class="desc"><p>Wrapper class for operating Choke objects in the Yggdrasil Engineering Simulator</p></div>
 <h3>Methods</h3>
 <dl>
 <dt id="YggSimLib.Choke.direct_control"><code class="name flex">
 <span>def <span class="ident">direct_control</span></span>(<span>self)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def direct_control(self):
+    &#34;&#34;&#34;
+    Set object in manual mode
+    &#34;&#34;&#34;
+    self.tl.set_value(self.app, self.c.name + &#34;:InputSwitch&#34;,2)</code></pre>
+</details>
 <div class="desc"><p>Set object in manual mode</p></div>
 </dd>
 <dt id="YggSimLib.Choke.get_pos"><code class="name flex">
 <span>def <span class="ident">get_pos</span></span>(<span>self)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_pos(self):
+    return self.tl.get_value(self.app, self.c.name + &#34;:ValveStemPosition&#34;, unit=&#34;%&#34;)</code></pre>
+</details>
 <div class="desc"></div>
 </dd>
 <dt id="YggSimLib.Choke.move_to"><code class="name flex">
 <span>def <span class="ident">move_to</span></span>(<span>self, pos)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def move_to(self, pos):
+    &#34;&#34;&#34;
+    Wrapper that moves a choke object to a desired position.  
+    If LocalControlSignalIn is connected from an external source, the choke will be set in Manual Mode
+    &#34;&#34;&#34;
+    connections = self.tl.get_block(self.app, self.c.name).input_connections
+    if len(connections) &gt; 0:
+        for conn in connections:
+            if &#34;LocalControlSignalIn&#34; in str(conn):
+                self.direct_control()
+    self.tl.set_value(self.app, self.c.name + &#34;:LocalControlSignalIn&#34;, pos, unit=&#34;%&#34;)
+    self.tl.set_value(self.app, self.c.name + &#34;:TargetPosition&#34;, pos, unit=&#34;%&#34;)</code></pre>
+</details>
 <div class="desc"><p>Wrapper that moves a choke object to a desired position.<br>
 If LocalControlSignalIn is connected from an external source, the choke will be set in Manual Mode</p></div>
 </dd>
@@ -304,6 +416,20 @@ If LocalControlSignalIn is connected from an external source, the choke will be 
 <span>def <span class="ident">reset_control</span></span>(<span>self)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reset_control(self):
+    &#34;&#34;&#34;
+    If object has defined connection to LocalControlSignalIn, set mode to Local
+    &#34;&#34;&#34;
+    connections = self.tl.get_block(self.app, self.c.name).input_connections
+    if len(connections) &gt; 0:
+        for conn in connections:
+            if &#34;LocalControlSignalIn&#34; in str(conn):
+                self.tl.set_value(self.app, self.c.name + &#34;:InputSwitch&#34;, 0)      </code></pre>
+</details>
 <div class="desc"><p>If object has defined connection to LocalControlSignalIn, set mode to Local</p></div>
 </dd>
 </dl>
@@ -313,7 +439,6 @@ If LocalControlSignalIn is connected from an external source, the choke will be 
 <span>(</span><span>tag, model, app=False)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Wrapper class for operating motors and heaters in the Yggdrasil Engineering Simulator</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -391,30 +516,71 @@ If LocalControlSignalIn is connected from an external source, the choke will be 
         &#34;&#34;&#34; Returns True if motor/element is switched off &#34;&#34;&#34;
         return self.tl.get_value(self.app, self.m.name + &#34;:LocalInput&#34;) == False</code></pre>
 </details>
+<div class="desc"><p>Wrapper class for operating motors and heaters in the Yggdrasil Engineering Simulator</p></div>
 <h3>Methods</h3>
 <dl>
 <dt id="YggSimLib.Motor_Heater.is_off"><code class="name flex">
 <span>def <span class="ident">is_off</span></span>(<span>self)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def is_off(self):
+    &#34;&#34;&#34; Returns True if motor/element is switched off &#34;&#34;&#34;
+    return self.tl.get_value(self.app, self.m.name + &#34;:LocalInput&#34;) == False</code></pre>
+</details>
 <div class="desc"><p>Returns True if motor/element is switched off</p></div>
 </dd>
 <dt id="YggSimLib.Motor_Heater.is_on"><code class="name flex">
 <span>def <span class="ident">is_on</span></span>(<span>self)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def is_on(self):
+    &#34;&#34;&#34; Returns True if motor/element is switched on &#34;&#34;&#34;
+    return self.tl.get_value(self.app, self.m.name + &#34;:LocalInput&#34;) == True</code></pre>
+</details>
 <div class="desc"><p>Returns True if motor/element is switched on</p></div>
 </dd>
 <dt id="YggSimLib.Motor_Heater.start"><code class="name flex">
 <span>def <span class="ident">start</span></span>(<span>self)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def start(self):
+    
+    &#34;&#34;&#34; Switch on the motor/element &#34;&#34;&#34;
+    if self.m:
+        self.tl.set_value(self.app, self.m.name + &#34;:LocalInput&#34;, True)
+    else:
+        print(&#34;Unvaild heater or motor object&#34;)   </code></pre>
+</details>
 <div class="desc"><p>Switch on the motor/element</p></div>
 </dd>
 <dt id="YggSimLib.Motor_Heater.stop"><code class="name flex">
 <span>def <span class="ident">stop</span></span>(<span>self)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def stop(self):
+    
+    &#34;&#34;&#34; Switch off the motor/element &#34;&#34;&#34;
+    if self.m:
+        self.tl.set_value(self.app, self.m.name + &#34;:LocalInput&#34;, False)
+    else:
+        print(&#34;Unvaild heater or motor object&#34;)</code></pre>
+</details>
 <div class="desc"><p>Switch off the motor/element</p></div>
 </dd>
 </dl>
@@ -424,7 +590,6 @@ If LocalControlSignalIn is connected from an external source, the choke will be 
 <span>(</span><span>tag, model, app=False)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Wrapper class for operating block-valves and motor-operated-valves in the Yggdrasil Engineering Simulator</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -531,42 +696,116 @@ If LocalControlSignalIn is connected from an external source, the choke will be 
         else:
             print(&#34;Unvaild valve object&#34;)        </code></pre>
 </details>
+<div class="desc"><p>Wrapper class for operating block-valves and motor-operated-valves in the Yggdrasil Engineering Simulator</p></div>
 <h3>Methods</h3>
 <dl>
 <dt id="YggSimLib.On_Off_Valve.close"><code class="name flex">
 <span>def <span class="ident">close</span></span>(<span>self)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def close(self):    
+    &#34;&#34;&#34; Wrapper that closes the valve regardless of type &#34;&#34;&#34;
+    if self.v:
+        if self.v.type == &#34;MotorOperatedValve&#34;:
+            self.tl.set_value(self.app, self.v.name + &#34;:LocalClose&#34;, True)
+        elif self.v.type == &#34;BlockValve&#34;:
+            self.tl.set_value(self.app, self.v.name + &#34;:LocalInput&#34;, False)
+        elif self.v.type == &#34;LedaValve&#34;:
+            self.tl.set_value(self.app, self.v.name + &#34;:LocalControlSignalIn&#34;, 0, unit=&#34;%&#34;)
+    else:
+        print(&#34;Unvaild valve object&#34;)</code></pre>
+</details>
 <div class="desc"><p>Wrapper that closes the valve regardless of type</p></div>
 </dd>
 <dt id="YggSimLib.On_Off_Valve.get_pos"><code class="name flex">
 <span>def <span class="ident">get_pos</span></span>(<span>self)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_pos(self):
+    &#34;&#34;&#34; Wrapper that returns the stem position of the valve in percentage &#34;&#34;&#34;
+    if self.v:
+        return self.tl.get_value(self.app, self.v.name + &#34;:ValveStemPosition&#34;, unit=&#34;%&#34;)
+    else:
+        print(&#34;Unvaild valve object&#34;)</code></pre>
+</details>
 <div class="desc"><p>Wrapper that returns the stem position of the valve in percentage</p></div>
 </dd>
 <dt id="YggSimLib.On_Off_Valve.get_valve"><code class="name flex">
 <span>def <span class="ident">get_valve</span></span>(<span>self)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_valve(self):
+    &#34;&#34;&#34; Return the BlockValve object &#34;&#34;&#34;
+    return self.v</code></pre>
+</details>
 <div class="desc"><p>Return the BlockValve object</p></div>
 </dd>
 <dt id="YggSimLib.On_Off_Valve.is_closed"><code class="name flex">
 <span>def <span class="ident">is_closed</span></span>(<span>self)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def is_closed(self):
+    &#34;&#34;&#34; Wrapper that returns True if valve is defined as closed &#34;&#34;&#34;
+    if self.v:
+        return self.tl.get_value(self.app, self.v.name + &#34;:IsDefinedClosed&#34;)
+    else:
+        print(&#34;Unvaild valve object&#34;)        </code></pre>
+</details>
 <div class="desc"><p>Wrapper that returns True if valve is defined as closed</p></div>
 </dd>
 <dt id="YggSimLib.On_Off_Valve.is_open"><code class="name flex">
 <span>def <span class="ident">is_open</span></span>(<span>self)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def is_open(self):
+    &#34;&#34;&#34; Wrapper that returns True if valve is defined as open &#34;&#34;&#34;
+    if self.v:
+        return self.tl.get_value(self.app, self.v.name + &#34;:IsDefinedOpen&#34;)
+    else:
+        print(&#34;Unvaild valve object&#34;)</code></pre>
+</details>
 <div class="desc"><p>Wrapper that returns True if valve is defined as open</p></div>
 </dd>
 <dt id="YggSimLib.On_Off_Valve.open"><code class="name flex">
 <span>def <span class="ident">open</span></span>(<span>self)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def open(self):
+    &#34;&#34;&#34; Wrapper that open the valve regardless of type &#34;&#34;&#34;
+    if self.v:
+        if self.v.type == &#34;MotorOperatedValve&#34;:
+            self.tl.set_value(self.app, self.v.name + &#34;:LocalOpen&#34;, True)
+        elif self.v.type == &#34;BlockValve&#34;:
+            self.tl.set_value(self.app, self.v.name + &#34;:LocalInput&#34;, True)
+        elif self.v.type == &#34;LedaValve&#34;:
+            self.tl.set_value(self.app, self.v.name + &#34;:LocalControlSignalIn&#34;, 100, unit=&#34;%&#34;)
+    else:
+        print(&#34;Unvaild valve object&#34;)</code></pre>
+</details>
 <div class="desc"><p>Wrapper that open the valve regardless of type</p></div>
 </dd>
 </dl>
@@ -576,7 +815,6 @@ If LocalControlSignalIn is connected from an external source, the choke will be 
 <span>(</span><span>tag, model, app=False)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Wrapper class for operating PID controllers in the Yggdrasil Engineering Simulator</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -688,54 +926,144 @@ If LocalControlSignalIn is connected from an external source, the choke will be 
         if self.get_mode() == &#34;Manual&#34; or (self.get_mode() == &#34;Auto&#34; and self.get_sp_selection() == &#34;Internal&#34;):
             self.tl.set_value(self.app, self.c.name + &#34;:InternalSetpoint&#34;, sp)</code></pre>
 </details>
+<div class="desc"><p>Wrapper class for operating PID controllers in the Yggdrasil Engineering Simulator</p></div>
 <h3>Methods</h3>
 <dl>
 <dt id="YggSimLib.PID.get_mode"><code class="name flex">
 <span>def <span class="ident">get_mode</span></span>(<span>self)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_mode(self):
+    &#34;&#34;&#34;
+    Returns text representation of the current mode
+    &#34;&#34;&#34;
+    m = self.tl.get_value(self.app, self.c.name + &#34;:Mode&#34;)
+    if m == 0:
+        return (&#34;Auto&#34;)
+    elif m == 1:
+        return (&#34;Manual&#34;)
+    else: 
+        return(&#34;External&#34;)</code></pre>
+</details>
 <div class="desc"><p>Returns text representation of the current mode</p></div>
 </dd>
 <dt id="YggSimLib.PID.get_output"><code class="name flex">
 <span>def <span class="ident">get_output</span></span>(<span>self)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_output(self):
+    &#34;&#34;&#34;
+    Get output of controller
+    &#34;&#34;&#34;        
+    return self.tl.get_value(self.app, self.c.name + &#34;:ControllerOutput&#34;)</code></pre>
+</details>
 <div class="desc"><p>Get output of controller</p></div>
 </dd>
 <dt id="YggSimLib.PID.get_sp_selection"><code class="name flex">
 <span>def <span class="ident">get_sp_selection</span></span>(<span>self)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_sp_selection(self):
+    s = self.tl.get_value(self.app, self.c.name + &#34;:SetpointSelection&#34;)
+    if s == 0:
+        return(&#34;Internal&#34;)
+    else:
+        return(&#34;External&#34;)</code></pre>
+</details>
 <div class="desc"></div>
 </dd>
 <dt id="YggSimLib.PID.set_output"><code class="name flex">
 <span>def <span class="ident">set_output</span></span>(<span>self, out)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_output(self, out):
+    &#34;&#34;&#34;
+    Change output of controller if controller is in manual mode
+    &#34;&#34;&#34;
+    if self.get_mode() == &#34;Manual&#34;:
+        self.tl.set_value(self.app, self.c.name + &#34;:ControllerOutput&#34;, out)</code></pre>
+</details>
 <div class="desc"><p>Change output of controller if controller is in manual mode</p></div>
 </dd>
 <dt id="YggSimLib.PID.set_setpoint"><code class="name flex">
 <span>def <span class="ident">set_setpoint</span></span>(<span>self, sp)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_setpoint(self, sp):
+    &#34;&#34;&#34;
+    Change internal setpoint of controller if controller is in manual or auto with internal setpoint selection
+    &#34;&#34;&#34;
+    if self.get_mode() == &#34;Manual&#34; or (self.get_mode() == &#34;Auto&#34; and self.get_sp_selection() == &#34;Internal&#34;):
+        self.tl.set_value(self.app, self.c.name + &#34;:InternalSetpoint&#34;, sp)</code></pre>
+</details>
 <div class="desc"><p>Change internal setpoint of controller if controller is in manual or auto with internal setpoint selection</p></div>
 </dd>
 <dt id="YggSimLib.PID.to_auto"><code class="name flex">
 <span>def <span class="ident">to_auto</span></span>(<span>self)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def to_auto(self):
+    &#34;&#34;&#34;
+    Set controller mode to Auto
+    &#34;&#34;&#34;
+    self.tl.set_value(self.app, self.c.name + &#34;:Mode&#34;, 0)</code></pre>
+</details>
 <div class="desc"><p>Set controller mode to Auto</p></div>
 </dd>
 <dt id="YggSimLib.PID.to_external"><code class="name flex">
 <span>def <span class="ident">to_external</span></span>(<span>self)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def to_external(self):
+    &#34;&#34;&#34;
+    Set controller mode to External SP
+    &#34;&#34;&#34;
+    self.tl.set_value(self.app, self.c.name + &#34;:Mode&#34;, 2)        </code></pre>
+</details>
 <div class="desc"><p>Set controller mode to External SP</p></div>
 </dd>
 <dt id="YggSimLib.PID.to_man"><code class="name flex">
 <span>def <span class="ident">to_man</span></span>(<span>self)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def to_man(self):
+    &#34;&#34;&#34;
+    Set controller mode to Manual
+    &#34;&#34;&#34;
+    self.tl.set_value(self.app, self.c.name + &#34;:Mode&#34;, 1)</code></pre>
+</details>
 <div class="desc"><p>Set controller mode to Manual</p></div>
 </dd>
 </dl>
@@ -745,10 +1073,6 @@ If LocalControlSignalIn is connected from an external source, the choke will be 
 <span>(</span><span>name, glob, sim, inhibit_conditions=[], verbose=False)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Sequencer object.
-Consists of a collection of Step objects.
-Constructor requires the globals() dictionary from calling module as second argument.<br>
-Optional inhibit conditions is a list with conditions in the form of function references.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -792,18 +1116,16 @@ Optional inhibit conditions is a list with conditions in the form of function re
             step = self.steps[0] 
             while True:
                 if self.verbose:
-                    print(&#34;Executing step {}&#34;.format(step.number), end=&#34;...&#34;) 
-                if step.check_conditions():
-                    #print(&#34;Conditions all ok&#34;, end=&#34;...&#34;)                
-                    step.execute_actions()
-                    if self.verbose:
-                        print(&#34;Executing {} action(s)&#34;.format(len(step.st)), end=&#34;...&#34;)
-                    start = self.sim.timeline.model_time
-                    while not step.check_trans():
-                        time.sleep(1)
-                        end = self.sim.timeline.model_time
-                        if (end-start).seconds &gt; step.tmax:
-                            raise Exception(&#34;Step timeout in step number {}&#34;.format(step.number))
+                    print(&#34;Executing step {}&#34;.format(step.number), end=&#34;...&#34;)                                
+                step.execute_actions()
+                if self.verbose:
+                    print(&#34;Executing {} action(s)&#34;.format(len(step.st)), end=&#34;...&#34;)
+                start = self.sim.timeline.model_time
+                while not step.check_trans():
+                    time.sleep(1)
+                    end = self.sim.timeline.model_time
+                    if (end-start).seconds &gt; step.tmax:
+                        raise Exception(&#34;Step timeout in step number {}&#34;.format(step.number))
                 if self.verbose:
                     print(&#34;Step {} executed successfully.&#34;.format(step.number))
                 if step.next:
@@ -822,30 +1144,102 @@ Optional inhibit conditions is a list with conditions in the form of function re
         for step in steps:
             self.add_step(step)</code></pre>
 </details>
+<div class="desc"><p>Sequencer object.
+Consists of a collection of Step objects.
+Constructor requires the globals() dictionary from calling module as second argument.<br>
+Optional inhibit conditions is a list with conditions in the form of function references.</p></div>
 <h3>Methods</h3>
 <dl>
 <dt id="YggSimLib.Sequence.add_step"><code class="name flex">
 <span>def <span class="ident">add_step</span></span>(<span>self, step)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_step(self, step):
+    self.steps.append(step)</code></pre>
+</details>
 <div class="desc"></div>
 </dd>
 <dt id="YggSimLib.Sequence.add_steps"><code class="name flex">
 <span>def <span class="ident">add_steps</span></span>(<span>self, steps)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_steps(self, steps):
+    for step in steps:
+        self.add_step(step)</code></pre>
+</details>
 <div class="desc"></div>
 </dd>
 <dt id="YggSimLib.Sequence.check_inhibits"><code class="name flex">
 <span>def <span class="ident">check_inhibits</span></span>(<span>self)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check_inhibits(self):
+    &#34;&#34;&#34; Inhibit conditions must all evaluate to False to allow sequence to start&#34;&#34;&#34;
+    ret = True
+    if len(self.inhibits) &gt; 0:            
+        for inhibit in self.inhibits:
+            if inhibit():
+                print(&#34;Inhibit condition prevents sequence start of &#34; + self.name + &#34;: &#34; + str(inhibit))
+                ret = False
+    return ret</code></pre>
+</details>
 <div class="desc"><p>Inhibit conditions must all evaluate to False to allow sequence to start</p></div>
 </dd>
 <dt id="YggSimLib.Sequence.start"><code class="name flex">
 <span>def <span class="ident">start</span></span>(<span>self)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def start(self):
+    &#34;&#34;&#34;
+    Executes the sequence, Step by Step according to Step configuration and logic
+    &#34;&#34;&#34;
+
+    print(&#34;\n*** Starting Sequence. Name: {}, number of Steps: {} ***&#34;.format(self.name, len(self.steps)))
+
+    if self.check_inhibits():
+        self.steps.sort()
+
+        # Step 1 is the always the first step in a sequence.  Following steps dictated by Step property and logic.
+        step = self.steps[0] 
+        while True:
+            if self.verbose:
+                print(&#34;Executing step {}&#34;.format(step.number), end=&#34;...&#34;)                                
+            step.execute_actions()
+            if self.verbose:
+                print(&#34;Executing {} action(s)&#34;.format(len(step.st)), end=&#34;...&#34;)
+            start = self.sim.timeline.model_time
+            while not step.check_trans():
+                time.sleep(1)
+                end = self.sim.timeline.model_time
+                if (end-start).seconds &gt; step.tmax:
+                    raise Exception(&#34;Step timeout in step number {}&#34;.format(step.number))
+            if self.verbose:
+                print(&#34;Step {} executed successfully.&#34;.format(step.number))
+            if step.next:
+                step = self.glob[step.next()]
+            else:
+                print(&#34;*** Sequence {} finished ***&#34;.format(self.name))
+                break
+    else:
+        raise Exception(&#34;Sequence cannot be started due to inhibit conditions&#34;)
+    return self.name</code></pre>
+</details>
 <div class="desc"><p>Executes the sequence, Step by Step according to Step configuration and logic</p></div>
 </dd>
 </dl>
@@ -855,17 +1249,6 @@ Optional inhibit conditions is a list with conditions in the form of function re
 <span>(</span><span>config)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>A Sequence Step object.
-Constructor takes Step configuration in the form of a dictionary.<br>
-Required fields in dictionary:
-number: The step number.
-conditions: A list of conditions in the form of function references, all must be evaluated to True for the step to execute
-actions: A list of actions in the form of function references, all will be executed simultaniously
-transitions: A list of transition conditions in the form of function references.
-All must be evaluated to True for the step to finish.
-tmax: The maximum number of seconds the step can take, measured in simulator time.
-next: The name of the next Step variable in string format.
-Will be evaluated in runtime to find the correct object.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -884,28 +1267,11 @@ Will be evaluated in runtime to find the correct object.</p></div>
     def __init__(self, config):
         self.failed = False
         self.number = config[&#34;number&#34;]
-        self.cond = config[&#34;conditions&#34;]
         self.st = config[&#34;actions&#34;]
         self.trans = config[&#34;transitions&#34;]
         self.tmax = config[&#34;tmax&#34;]
         self.next = config[&#34;next&#34;]
-
-    def conditions(self):
-        &#34;&#34;&#34;
-        Returns the list of condition function references
-        &#34;&#34;&#34;
-        return self.cond
-
-    def check_conditions(self):
-        &#34;&#34;&#34;
-        All conditions must evaluate to True to continue
-        &#34;&#34;&#34;
-        for cond in self.cond:
-            
-            if not cond():
-                raise Exception(&#34;Condition not met: &#34; + str(cond))
-                return False
-        return True
+  
     def execute_actions(self):
         &#34;&#34;&#34;
         Executes all actions
@@ -953,42 +1319,86 @@ Will be evaluated in runtime to find the correct object.</p></div>
         &#34;&#34;&#34;
         return self.number == other.number</code></pre>
 </details>
+<div class="desc"><p>A Sequence Step object.
+Constructor takes Step configuration in the form of a dictionary.<br>
+Required fields in dictionary:
+number: The step number.
+conditions: A list of conditions in the form of function references, all must be evaluated to True for the step to execute
+actions: A list of actions in the form of function references, all will be executed simultaniously
+transitions: A list of transition conditions in the form of function references.
+All must be evaluated to True for the step to finish.
+tmax: The maximum number of seconds the step can take, measured in simulator time.
+next: The name of the next Step variable in string format.
+Will be evaluated in runtime to find the correct object.</p></div>
 <h3>Methods</h3>
 <dl>
 <dt id="YggSimLib.Step.StepAction"><code class="name flex">
 <span>def <span class="ident">StepAction</span></span>(<span>self)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def StepAction(self):
+    &#34;&#34;&#34;
+    Returns the list of Step Actions
+    &#34;&#34;&#34;
+    return self.st</code></pre>
+</details>
 <div class="desc"><p>Returns the list of Step Actions</p></div>
-</dd>
-<dt id="YggSimLib.Step.check_conditions"><code class="name flex">
-<span>def <span class="ident">check_conditions</span></span>(<span>self)</span>
-</code></dt>
-<dd>
-<div class="desc"><p>All conditions must evaluate to True to continue</p></div>
 </dd>
 <dt id="YggSimLib.Step.check_trans"><code class="name flex">
 <span>def <span class="ident">check_trans</span></span>(<span>self)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check_trans(self):
+    &#34;&#34;&#34;
+    All transitions must evaluate to True to continue.
+    &#34;&#34;&#34;
+    ret = True
+    for trans in self.trans:
+        if not trans():
+            ret = False
+    return ret</code></pre>
+</details>
 <div class="desc"><p>All transitions must evaluate to True to continue.</p></div>
-</dd>
-<dt id="YggSimLib.Step.conditions"><code class="name flex">
-<span>def <span class="ident">conditions</span></span>(<span>self)</span>
-</code></dt>
-<dd>
-<div class="desc"><p>Returns the list of condition function references</p></div>
 </dd>
 <dt id="YggSimLib.Step.execute_actions"><code class="name flex">
 <span>def <span class="ident">execute_actions</span></span>(<span>self)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def execute_actions(self):
+    &#34;&#34;&#34;
+    Executes all actions
+    &#34;&#34;&#34;
+    for st in self.st:
+        st()</code></pre>
+</details>
 <div class="desc"><p>Executes all actions</p></div>
 </dd>
 <dt id="YggSimLib.Step.onFail"><code class="name flex">
 <span>def <span class="ident">onFail</span></span>(<span>self)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def onFail(self):
+    &#34;&#34;&#34;
+    To be implemented.  What to do on Step failure (conditions or transitions).  For now Exceptions are raised directly.
+    &#34;&#34;&#34;
+    return False</code></pre>
+</details>
 <div class="desc"><p>To be implemented.
 What to do on Step failure (conditions or transitions).
 For now Exceptions are raised directly.</p></div>
@@ -997,6 +1407,16 @@ For now Exceptions are raised directly.</p></div>
 <span>def <span class="ident">transition</span></span>(<span>self)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def transition(self):
+    &#34;&#34;&#34;
+    Returns the list of Step Transitions
+    &#34;&#34;&#34;
+    return self.trans</code></pre>
+</details>
 <div class="desc"><p>Returns the list of Step Transitions</p></div>
 </dd>
 </dl>
@@ -1006,7 +1426,6 @@ For now Exceptions are raised directly.</p></div>
 <span>(</span><span>tag, model, app=False)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Wrapper class for reading transmitter objects in the Yggdrasil Engineering Simulator</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -1064,12 +1483,20 @@ For now Exceptions are raised directly.</p></div>
     def get_value(self, unit):
         return self.tl.get_value(self.app, self.t.name + &#34;:MeasuredValue&#34;, unit=unit)</code></pre>
 </details>
+<div class="desc"><p>Wrapper class for reading transmitter objects in the Yggdrasil Engineering Simulator</p></div>
 <h3>Methods</h3>
 <dl>
 <dt id="YggSimLib.Transmitter.get_value"><code class="name flex">
 <span>def <span class="ident">get_value</span></span>(<span>self, unit)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_value(self, unit):
+    return self.tl.get_value(self.app, self.t.name + &#34;:MeasuredValue&#34;, unit=unit)</code></pre>
+</details>
 <div class="desc"></div>
 </dd>
 </dl>
@@ -1079,10 +1506,6 @@ For now Exceptions are raised directly.</p></div>
 <span>(</span><span>run=False)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Wrapper for creating a simulator object.<br>
-Will invoke GUI elements for choosing model, timeline and timeline-files.</p>
-<p>Initialise a Yggdrasil LCS object.<br>
-Optional "run" parameter will call "run" on timeline after initialization if True</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -1158,60 +1581,145 @@ Optional "run" parameter will call "run" on timeline after initialization if Tru
     def close_project(self):
         self.sim.close_project()</code></pre>
 </details>
+<div class="desc"><p>Wrapper for creating a simulator object.<br>
+Will invoke GUI elements for choosing model, timeline and timeline-files.</p>
+<p>Initialise a Yggdrasil LCS object.<br>
+Optional "run" parameter will call "run" on timeline after initialization if True</p></div>
 <h3>Methods</h3>
 <dl>
 <dt id="YggSimLib.YggLCS.choke"><code class="name flex">
 <span>def <span class="ident">choke</span></span>(<span>self, tag, app=False)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def choke(self, tag, app=False):
+    &#34;&#34;&#34;        
+    Creates and returns a choke object
+    &#34;&#34;&#34;
+    return Choke(tag, self, app)</code></pre>
+</details>
 <div class="desc"><p>Creates and returns a choke object</p></div>
 </dd>
 <dt id="YggSimLib.YggLCS.close_project"><code class="name flex">
 <span>def <span class="ident">close_project</span></span>(<span>self)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def close_project(self):
+    self.sim.close_project()</code></pre>
+</details>
 <div class="desc"></div>
 </dd>
 <dt id="YggSimLib.YggLCS.get_timeline"><code class="name flex">
 <span>def <span class="ident">get_timeline</span></span>(<span>self)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_timeline(self):
+    &#34;&#34;&#34;
+    Returns the active timeline object
+    &#34;&#34;&#34;
+    return self.timeline</code></pre>
+</details>
 <div class="desc"><p>Returns the active timeline object</p></div>
 </dd>
 <dt id="YggSimLib.YggLCS.motor_heater"><code class="name flex">
 <span>def <span class="ident">motor_heater</span></span>(<span>self, tag, app=False)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def motor_heater(self, tag, app=False):
+    &#34;&#34;&#34;
+    Creates and returns an electrical element, used for heaters and motors
+    &#34;&#34;&#34;
+    return Motor_Heater(tag, self, app)</code></pre>
+</details>
 <div class="desc"><p>Creates and returns an electrical element, used for heaters and motors</p></div>
 </dd>
 <dt id="YggSimLib.YggLCS.on_off_valve"><code class="name flex">
 <span>def <span class="ident">on_off_valve</span></span>(<span>self, tag, app=False)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def on_off_valve(self, tag, app=False):
+    &#34;&#34;&#34;
+    Creates and returns a on-off valve object
+    &#34;&#34;&#34;
+    return On_Off_Valve(tag, self, app)</code></pre>
+</details>
 <div class="desc"><p>Creates and returns a on-off valve object</p></div>
 </dd>
 <dt id="YggSimLib.YggLCS.pause"><code class="name flex">
 <span>def <span class="ident">pause</span></span>(<span>self)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def pause(self):
+    self.timeline.pause()</code></pre>
+</details>
 <div class="desc"></div>
 </dd>
 <dt id="YggSimLib.YggLCS.pid"><code class="name flex">
 <span>def <span class="ident">pid</span></span>(<span>self, tag, app=False)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def pid(self, tag, app=False):
+    &#34;&#34;&#34;
+    Creates and returns a PID controller
+    &#34;&#34;&#34;
+    return PID(tag, self, app)</code></pre>
+</details>
 <div class="desc"><p>Creates and returns a PID controller</p></div>
 </dd>
 <dt id="YggSimLib.YggLCS.run"><code class="name flex">
 <span>def <span class="ident">run</span></span>(<span>self)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run(self):
+    self.timeline.run()</code></pre>
+</details>
 <div class="desc"></div>
 </dd>
 <dt id="YggSimLib.YggLCS.transmitter"><code class="name flex">
 <span>def <span class="ident">transmitter</span></span>(<span>self, tag, app=False)</span>
 </code></dt>
 <dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def transmitter(self, tag, app=False):
+    &#34;&#34;&#34;
+    Creates and returns an AlarmTransmitter object
+    &#34;&#34;&#34;
+    return Transmitter(tag, self, app)</code></pre>
+</details>
 <div class="desc"><p>Creates and returns an AlarmTransmitter object</p></div>
 </dd>
 </dl>
@@ -1287,11 +1795,9 @@ Optional "run" parameter will call "run" on timeline after initialization if Tru
 </li>
 <li>
 <h4><code><a title="YggSimLib.Step" href="#YggSimLib.Step">Step</a></code></h4>
-<ul class="two-column">
+<ul class="">
 <li><code><a title="YggSimLib.Step.StepAction" href="#YggSimLib.Step.StepAction">StepAction</a></code></li>
-<li><code><a title="YggSimLib.Step.check_conditions" href="#YggSimLib.Step.check_conditions">check_conditions</a></code></li>
 <li><code><a title="YggSimLib.Step.check_trans" href="#YggSimLib.Step.check_trans">check_trans</a></code></li>
-<li><code><a title="YggSimLib.Step.conditions" href="#YggSimLib.Step.conditions">conditions</a></code></li>
 <li><code><a title="YggSimLib.Step.execute_actions" href="#YggSimLib.Step.execute_actions">execute_actions</a></code></li>
 <li><code><a title="YggSimLib.Step.onFail" href="#YggSimLib.Step.onFail">onFail</a></code></li>
 <li><code><a title="YggSimLib.Step.transition" href="#YggSimLib.Step.transition">transition</a></code></li>
@@ -1323,7 +1829,7 @@ Optional "run" parameter will call "run" on timeline after initialization if Tru
 </nav>
 </main>
 <footer id="footer">
-<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.1</a>.</p>
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
 </footer>
 </body>
 </html>
