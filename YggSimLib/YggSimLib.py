@@ -112,8 +112,8 @@ class On_Off_Valve:
             self.v = False
 
         if self.v:
-            if self.v.type not in ["MotorOperatedValve", "BlockValve", "LedaValve"]:
-                print("Object is not a Leda-Valve, Motor-Operated_Valve or Block-Valve. Object is of type {}.\nNo further operations on object allowed.".format(self.v.type))
+            if self.v.type not in ["MotorOperatedValve", "BlockValve", "LedaValve", "PulseControlledValve", "ControlValve"]:
+                print("Object is not a Leda-Valve, Motor-Operated_Valve, PulseControlledValve, ControlValve or Block-Valve. Object is of type {}.\nNo further operations on object allowed.".format(self.v.type))
                 self.v = False
     
     def _search_application_(self, tag):
@@ -139,8 +139,10 @@ class On_Off_Valve:
                 self.tl.set_value(self.app, self.v.name + ":LocalClose", True)
             elif self.v.type == "BlockValve":
                 self.tl.set_value(self.app, self.v.name + ":LocalInput", False)
-            elif self.v.type == "LedaValve":
+            elif self.v.type in ["LedaValve", "ControlValve"]:
                 self.tl.set_value(self.app, self.v.name + ":LocalControlSignalIn", 0, unit="%")
+            elif self.v.type == "PulseControlledValve":
+                self.tl.set_value(self.app, self.v.name + ":LocalSetClosed", True)
         else:
             print("Unvaild valve object")
 
@@ -151,8 +153,10 @@ class On_Off_Valve:
                 self.tl.set_value(self.app, self.v.name + ":LocalOpen", True)
             elif self.v.type == "BlockValve":
                 self.tl.set_value(self.app, self.v.name + ":LocalInput", True)
-            elif self.v.type == "LedaValve":
+            elif self.v.type in ["LedaValve", "ControlValve"]:
                 self.tl.set_value(self.app, self.v.name + ":LocalControlSignalIn", 100, unit="%")
+            elif self.v.type == "PulseControlledValve":
+                self.tl.set_value(self.app, self.v.name + ":LocalSetOpen", True)
         else:
             print("Unvaild valve object")
             
