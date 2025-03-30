@@ -83,6 +83,7 @@ class On_Off_Valve:
 
         self.sim = model.sim
         self.tl = model.timeline
+        self.tag = tag
         
         if not app:
 
@@ -141,6 +142,15 @@ class On_Off_Valve:
                 self.tl.set_value(self.app, self.v.name + ":LocalInput", False)
             elif self.v.type in ["LedaValve", "ControlValve"]:
                 self.tl.set_value(self.app, self.v.name + ":LocalControlSignalIn", 0, unit="%")
+                # get and operate keyswitch if exists
+                try:
+                    ks = self.tl.get_block(self.app, self.tag + "_KS")
+                    self.tl.set_value(self.app, self.tag + "_KS", False)
+                except:
+                    pass
+                
+            
+                
             elif self.v.type == "PulseControlledValve":
                 self.tl.set_value(self.app, self.v.name + ":LocalSetClosed", True)
         else:
@@ -155,6 +165,12 @@ class On_Off_Valve:
                 self.tl.set_value(self.app, self.v.name + ":LocalInput", True)
             elif self.v.type in ["LedaValve", "ControlValve"]:
                 self.tl.set_value(self.app, self.v.name + ":LocalControlSignalIn", 100, unit="%")
+                # get and operate keyswitch if exists
+                try:
+                    ks = self.tl.get_block(self.app, self.tag + "_KS")
+                    self.tl.set_value(self.app, self.tag + "_KS", True)
+                except:
+                    pass
             elif self.v.type == "PulseControlledValve":
                 self.tl.set_value(self.app, self.v.name + ":LocalSetOpen", True)
         else:
