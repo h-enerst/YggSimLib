@@ -253,14 +253,20 @@ class Motor_Heater:
         
         """ Switch on the motor/element """
         if self.m:
-            self.tl.set_value(self.app, self.m.name + ":LocalInput", True)
+            if self.tl.get_value(self.app, self.tag + ":OnOffOption") == 0:
+                self.tl.set_value(self.app, self.m.name + ":LocalInput", True)
+            else:
+                self.tl.set_value(self.app, self.m.name + ":LocalSetOn", True)
         else:
             print("Unvaild heater or motor object")   
     def stop(self):
         
         """ Switch off the motor/element """
         if self.m:
-            self.tl.set_value(self.app, self.m.name + ":LocalInput", False)
+            if self.tl.get_value(self.app, self.tag + ":OnOffOption") == 0:
+                self.tl.set_value(self.app, self.m.name + ":LocalInput", False)
+            else:
+                self.tl.set_value(self.app, self.m.name + ":LocalSetOff", True)
         else:
             print("Unvaild heater or motor object")
     def is_on(self):
