@@ -145,7 +145,7 @@ class On_Off_Valve:
                 # get and operate keyswitch if exists
                 try:
                     ks = self.tl.get_block(self.app, self.tag + "_KS")
-                    self.tl.set_value(self.app, self.tag + "_KS", False)
+                    self.tl.set_value(self.app, self.tag + "_KS:RequestedPosition", False)
                 except:
                     pass
                 
@@ -168,7 +168,7 @@ class On_Off_Valve:
                 # get and operate keyswitch if exists
                 try:
                     ks = self.tl.get_block(self.app, self.tag + "_KS")
-                    self.tl.set_value(self.app, self.tag + "_KS", True)
+                    self.tl.set_value(self.app, self.tag + "_KS:RequestedPosition", True)
                 except:
                     pass
             elif self.v.type == "PulseControlledValve":
