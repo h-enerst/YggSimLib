@@ -2,7 +2,7 @@
 
 YggSimLib is a Python framework for orchestrating and automating simulation workflows in the Yggdrasil Engineering Simulator. It allows for modular control of simulated equipment such as valves, motors, heaters, PID controllers, and choke valves, and supports stepwise and parallel sequence execution with inhibit logic and transition conditions.
 
-## 🔧 Features
+## Features
 
 - Object-oriented wrappers for:
   - On/off valves
