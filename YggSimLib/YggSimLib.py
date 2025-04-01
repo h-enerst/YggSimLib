@@ -9,7 +9,14 @@ import time
 
 
 class _askTimeline(simpledialog.Dialog): 
-
+    """
+    Dialog for selecting a timeline from a list of available timelines.
+    
+    Args:
+        root (Tk): Parent Tkinter window.
+        title (str): Dialog title.
+        timelines (list): List of timeline objects to choose from.
+    """
     def __init__(self, root, title, timelines= []):
         self.timelines = timelines
         self.tl = IntVar(root)
@@ -30,7 +37,16 @@ class _askTimeline(simpledialog.Dialog):
         pass
         
 class _askFiles(simpledialog.Dialog):
+    """
+    Dialog for selecting model, parameter, and initial condition files.
 
+    Args:
+        root (Tk): Parent Tkinter window.
+        title (str): Dialog title.
+        models (list): List of available model file names.
+        parameters (list): List of available parameter file names.
+        ics (list): List of available initial condition file names.
+    """
     def __init__(self, root, title, models, parameters, ics):
         self.models = models
         self.parameters = parameters
@@ -76,11 +92,15 @@ class _askFiles(simpledialog.Dialog):
         
         
 class On_Off_Valve:
-    
+    """
+    Wrapper for operating block-valves and motor-operated-valves in the Yggdrasil Engineering Simulator.
+
+    Args:
+        tag (str): Tag name of the valve.
+        model (YggLCS): Reference to the YggLCS simulation object.
+        app (str, optional): Application name. Automatically inferred if not provided.
+    """    
     def __init__(self, tag, model, app=False):  
-        """Wrapper class for operating block-valves and motor-operated-valves in the Yggdrasil Engineering Simulator"""
-
-
         self.sim = model.sim
         self.tl = model.timeline
         self.tag = tag
@@ -198,10 +218,16 @@ class On_Off_Valve:
             print("Unvaild valve object")        
     
 class Motor_Heater:
+    """
+    Wrapper for operating motors and electric heaters in the Yggdrasil Engineering Simulator.
+
+    Args:
+        tag (str): Tag name of the motor or heater.
+        model (YggLCS): Reference to the YggLCS simulation object.
+        app (str, optional): Application name. Automatically inferred if not provided.
+    """
 
     def __init__(self, tag, model, app=False):  
-        """Wrapper class for operating motors and heaters in the Yggdrasil Engineering Simulator"""
-
 
         self.sim = model.sim
         self.tl = model.timeline
@@ -282,8 +308,16 @@ class Motor_Heater:
         return self.tl.get_value(self.app, self.m.name + ":Running") == False
 
 class PID:
+    """
+    Wrapper for operating PID controllers in the Yggdrasil Engineering Simulator.
+
+    Args:
+        tag (str): Tag name of the PID controller.
+        model (YggLCS): Reference to the YggLCS simulation object.
+        app (str, optional): Application name. Automatically inferred if not provided.
+    """
     def __init__(self, tag, model, app=False):  
-        """Wrapper class for operating PID controllers in the Yggdrasil Engineering Simulator"""
+
 
 
         self.sim = model.sim
@@ -407,8 +441,16 @@ class PID:
             self.tl.set_value(self.app, self.c.name + ":InternalSetpoint", sp)
 
 class Choke:
+    """
+    Wrapper for operating choke and control valves in the Yggdrasil Engineering Simulator.
+
+    Args:
+        tag (str): Tag name of the choke valve.
+        model (YggLCS): Reference to the YggLCS simulation object.
+        app (str, optional): Application name. Automatically inferred if not provided.
+    """
     def __init__(self, tag, model, app=False):  
-        """Wrapper class for operating Choke objects in the Yggdrasil Engineering Simulator"""
+
 
 
         self.sim = model.sim
@@ -490,9 +532,15 @@ class Choke:
         return self.tl.get_value(self.app, self.c.name + ":ValveStemPosition", unit="%")
 
 class Transmitter:
-    def __init__(self, tag, model, app=False):  
-        """Wrapper class for reading transmitter objects in the Yggdrasil Engineering Simulator"""
+    """
+    Wrapper for reading transmitter values in the Yggdrasil Engineering Simulator.
 
+    Args:
+        tag (str): Tag name of the transmitter.
+        model (YggLCS): Reference to the YggLCS simulation object.
+        app (str, optional): Application name. Automatically inferred if not provided.
+    """
+    def __init__(self, tag, model, app=False):  
 
         self.sim = model.sim
         self.tl = model.timeline
@@ -544,14 +592,12 @@ class Transmitter:
 
 class YggLCS:
     """
-    Wrapper for creating a simulator object.  
-    Will invoke GUI elements for choosing model, timeline and timeline-files.
+    Wrapper for initializing and managing a Yggdrasil Engineering Simulator project.
+
+    Args:
+        run (bool, optional): If True, starts the simulation immediately after loading.
     """
     def __init__(self, run = False):
-        """
-        Initialise a Yggdrasil LCS object.  
-        Optional "run" parameter will call "run" on timeline after initialization if True
-        """
 
         root = Tk()
         root.withdraw()
@@ -615,9 +661,14 @@ class YggLCS:
 
 class Sequence:
     """
-    Sequencer object.  Consists of a collection of Step objects.
-      
-    Optional inhibit conditions is a list with conditions in the form of function references.
+    A sequence of steps to be executed in order, with optional inhibit conditions.
+
+    Args:
+        name (str): Name of the sequence.
+        seqs (dict): Dictionary of all step objects (name → Step).
+        sim (YggLCS): Reference to the simulator object.
+        inhibit_conditions (list of callables, optional): Conditions that must evaluate False for the sequence to run.
+        verbose (bool, optional): If True, prints execution info.
     """
 
     def __init__(self, name, seqs, sim, inhibit_conditions=[], verbose = False):
@@ -687,14 +738,15 @@ class Sequence:
 
 class Step:
     """
-    A Sequence Step object.  Constructor takes Step configuration in the form of a dictionary.  
-    Required fields in dictionary:
-        number: The step number. 
-        conditions: A list of conditions in the form of function references, all must be evaluated to True for the step to execute
-        actions: A list of actions in the form of function references, all will be executed simultaniously
-        transitions: A list of transition conditions in the form of function references.  All must be evaluated to True for the step to finish.
-        tmax: The maximum number of seconds the step can take, measured in simulator time.
-        next: The name of the next Step variable in string format.  Will be evaluated in runtime to find the correct object.
+    A single step in a sequence.
+
+    Args:
+        config (dict): Configuration dictionary containing:
+        number (int): Step number.
+        actions (list of callables): Actions to perform when the step starts.
+        transitions (list of callables): Conditions that must evaluate to True to complete the step.
+        tmax (int): Maximum allowed simulator time (in seconds) for the step.
+        next (Callable[[], str] or None): Function returning the key of the next step.
     """
     def __init__(self, config):
         self.failed = False
@@ -755,12 +807,13 @@ class Step:
 class Admin:
 
     """
-    Creates an Administration sequence.  
-    Arguments:
-        sequences: A list of Sequence objects
-        edges: A list of tuples dictating the dependencies between sequences.
-        
-        sim: a reference to the YggLCS simulator object from calling module
+    Administrative controller for managing and executing multiple sequences with dependency resolution.
+
+    Args:
+        name (str): Name of the admin controller.
+        sequences (list of Sequence): List of sequence objects.
+        edges (list of tuples): Directed edges defining execution order between sequences.
+        sim (YggLCS): Reference to the simulator object.
     """
 
     def __init__(self, name, sequences, edges, sim):
