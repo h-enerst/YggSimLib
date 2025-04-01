@@ -16,13 +16,13 @@ YggSimLib is a Python framework for orchestrating and automating simulation work
 - GUI support for selecting models, timelines, and data files
 - Parallel execution support using threads
 
-## 📁 File Structure
+## File Structure
 
 - `YggSimLib.py`: Core library with class definitions and sequence execution engine
 - `muninUtilities.py`: Example configuration for a multi-system simulation setup
 - `main.py`: Startup script to initialize and run the sequences
 
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
 python main.py
@@ -36,7 +36,7 @@ You’ll be prompted to select:
 
 Once loaded, the simulation sequences will begin executing according to defined dependencies.
 
-## 🧠 Example: Defining a Step
+## Example: Defining a Step
 
 ```python
 step = Step({
@@ -48,7 +48,7 @@ step = Step({
 })
 ```
 
-## 🔁 Sequence Logic
+## Sequence Logic
 
 ```python
 steps = {"S010": step1, "S020": step2}
@@ -57,7 +57,7 @@ sequence.add_steps(steps.values())
 sequence.start()
 ```
 
-## 🧩 Admin Graph
+## Admin Graph
 Use `Admin` to define a full system of sequences with dependencies:
 
 ```python
@@ -65,16 +65,16 @@ a = Admin("startup_controller", [seq1, seq2, seq3], edges, sim)
 a.start()
 ```
 
-## 📚 Documentation Style
+## Documentation Style
 Docstrings follow the Google Python style guide and describe:
 - Arguments
 - Behavior
 - Return values (where applicable)
 
-## ✅ Requirements
+## Requirements
 - Python 3.12
 - Yggdrasil Engineering Simulator (with `kspice` Python bindings)
 - `networkx` for dependency graphs
 
-## ✨ Author
+## Author
 Built by Håkon – Process Data Scientist, passionate about simulation, optimization.
