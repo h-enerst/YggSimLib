@@ -235,7 +235,7 @@ class Motor_Heater:
 
         if self.m:
             if self.m.type not in ["ControlledAsynchronousMachine", "ControlledElectricHeater"]:
-                print("Object is not a Motor or Heater. Object is of type {}.\nNo further operations on object allowed.".format(self.v.type))
+                print("Object is not a Motor or Heater. Object is of type {}.\nNo further operations on object allowed.".format(self.m.type))
                 self.m = False
 
     def _search_application_(self, tag):
@@ -253,7 +253,7 @@ class Motor_Heater:
         
         """ Switch on the motor/element """
         if self.m:
-            if self.tl.get_value(self.app, self.tag + ":OnOffOption") == 0:
+            if self.tl.get_value(self.app, self.m.name + ":OnOffOption") == 0:
                 self.tl.set_value(self.app, self.m.name + ":LocalInput", True)
             else:
                 self.tl.set_value(self.app, self.m.name + ":LocalSetOn", True)
@@ -263,7 +263,7 @@ class Motor_Heater:
         
         """ Switch off the motor/element """
         if self.m:
-            if self.tl.get_value(self.app, self.tag + ":OnOffOption") == 0:
+            if self.tl.get_value(self.app, self.m.name + ":OnOffOption") == 0:
                 self.tl.set_value(self.app, self.m.name + ":LocalInput", False)
             else:
                 self.tl.set_value(self.app, self.m.name + ":LocalSetOff", True)
@@ -271,10 +271,15 @@ class Motor_Heater:
             print("Unvaild heater or motor object")
     def is_on(self):
         """ Returns True if motor/element is switched on """
-        return self.tl.get_value(self.app, self.m.name + ":LocalInput") == True
+        if self.m.type == "ControlledAsynchronousMachine":
+            return self.tl.get_value(self.app, self.m.name + ":MachineState") == 1
+        else:
+            return self.tl.get_value(self.app, self.m.name + ":Running") == True
     def is_off(self):
         """ Returns True if motor/element is switched off """
-        return self.tl.get_value(self.app, self.m.name + ":LocalInput") == False
+        if self.m.type == "ControlledAsynchronousMachine":
+            return self.tl.get_value(self.app, self.m.name + ":MachineState") == 0
+        return self.tl.get_value(self.app, self.m.name + ":Running") == False
 
 class PID:
     def __init__(self, tag, model, app=False):  
@@ -362,7 +367,25 @@ class PID:
         """
         Set controller mode to External SP
         """
-        self.tl.set_value(self.app, self.c.name + ":Mode", 2)        
+        self.tl.set_value(self.app, self.c.name + ":Mode", 2) 
+
+    def set_tracking(self, state):
+        """
+        Set tracking mode on or off
+        """
+        self.tl.set_value(self.app, self.c.name + ":Tracking", state)
+
+    def get_tracking(self):
+        """
+        Get state of tracking
+        """
+        return self.tl.get_value(self.app, self.c.name + ":Tracking")
+
+    def set_tracking_value(self, value):
+        """ 
+        Set the output used when tracking
+        """
+        self.tl.set_value(self.app, self.c.name + ":Feedback", value)
 
     def set_output(self, out):
         """
@@ -615,12 +638,13 @@ class Sequence:
                     ret = False
         return ret
     
-    def start(self):
+    def start(self, verbose = False):
         """
         Executes the sequence, Step by Step according to Step configuration and logic
         """
 
-        print("\n*** Starting Sequence. Name: {}, number of Steps: {} ***".format(self.name, len(self.steps)))
+        if self.name not in ["START", "END"]:
+            print("\n" + str(self.sim.timeline.model_time) + ": *** Starting Sequence. Name: {}, number of Steps: {} ***".format(self.name, len(self.steps)))
 
         if self.check_inhibits():
             self.steps.sort()
@@ -628,23 +652,27 @@ class Sequence:
             # Step 1 is the always the first step in a sequence.  Following steps dictated by Step property and logic.
             step = self.steps[0] 
             while True:
-                if self.verbose:
-                    print("Executing step {}".format(step.number), end="...")                                
+                if verbose:
+                    print(str(self.sim.timeline.model_time) + ": Executing step {}".format(step.number), end="...")                                
                 step.execute_actions()
-                if self.verbose:
-                    print("Executing {} action(s)".format(len(step.st)), end="...")
+                if verbose:
+                    print(str(self.sim.timeline.model_time) + ": Executing {} action(s)".format(len(step.st)), end="...")
                 start = self.sim.timeline.model_time
                 while not step.check_trans():
                     time.sleep(1)
                     end = self.sim.timeline.model_time
                     if (end-start).seconds > step.tmax:
-                        raise Exception("Step timeout in step number {}".format(step.number))
-                if self.verbose:
-                    print("Step {} executed successfully.".format(step.number))
+                        message = str(self.sim.timeline.model_time) + ": Sequence: {}, Step timeout in step {}.\n".format(self.name, step.number)
+                        for trans in step.trans:
+                            message += str(trans) +": " + str(trans()) + "\n"
+                        raise Exception(message)
+                if verbose:
+                    print(str(self.sim.timeline.model_time) + ": Step {} executed successfully.".format(step.number))
                 if step.next:
                     step = self.glob[step.next()]
                 else:
-                    print("*** Sequence {} finished ***".format(self.name))
+                    if self.name not in ["START", "END"]:
+                        print(str(self.sim.timeline.model_time) + ": *** Sequence {} finished ***".format(self.name))
                     break
         else:
             raise Exception("Sequence cannot be started due to inhibit conditions")
@@ -735,7 +763,8 @@ class Admin:
         sim: a reference to the YggLCS simulator object from calling module
     """
 
-    def __init__(self, sequences, edges, glob, sim):
+    def __init__(self, name, sequences, edges, glob, sim):
+        self.name = name
         self.seq = {}
         for s in sequences:
             self.seq[s.name] = s
