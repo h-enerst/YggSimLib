@@ -616,12 +616,12 @@ class YggLCS:
 class Sequence:
     """
     Sequencer object.  Consists of a collection of Step objects.
-    Constructor requires the globals() dictionary from calling module as second argument.  
+      
     Optional inhibit conditions is a list with conditions in the form of function references.
     """
 
-    def __init__(self, name, glob, sim, inhibit_conditions=[], verbose = False):
-        self.glob = glob
+    def __init__(self, name, seqs, sim, inhibit_conditions=[], verbose = False):
+        self.seqs = seqs
         self.steps = []
         self.inhibits = inhibit_conditions
         self.name = name
@@ -669,7 +669,7 @@ class Sequence:
                 if verbose:
                     print(str(self.sim.timeline.model_time) + ": Step {} executed successfully.".format(step.number))
                 if step.next:
-                    step = self.glob[step.next()]
+                    step = self.seqs[step.next()]
                 else:
                     if self.name not in ["START", "END"]:
                         print(str(self.sim.timeline.model_time) + ": *** Sequence {} finished ***".format(self.name))
@@ -759,17 +759,18 @@ class Admin:
     Arguments:
         sequences: A list of Sequence objects
         edges: A list of tuples dictating the dependencies between sequences.
-        glob: a copy of the globals dictionary from calling module
+        
         sim: a reference to the YggLCS simulator object from calling module
     """
 
-    def __init__(self, name, sequences, edges, glob, sim):
+    def __init__(self, name, sequences, edges, sim):
         self.name = name
         self.seq = {}
         for s in sequences:
             self.seq[s.name] = s
         # Initialise first step (START)
-        start = Step({
+        dummy = {}
+        dummy["start"] = Step({
             "number": 1,
             "conditions": [],
             "actions": [],
@@ -778,20 +779,20 @@ class Admin:
             "next": None
         })
         start_seq = Sequence("START", 
-               glob,
+               dummy,
                sim,
                []
                )
-        start_seq.add_step(start)
+        start_seq.add_step(dummy["start"])
         self.seq["START"] = start_seq
 
         #Initialize the last step (END)
         end = Sequence("END", 
-               glob,
+               dummy,
                sim,
                []
                )
-        end.add_step(start)
+        end.add_step(dummy["start"])
         self.seq["END"] = end
         
         self.edges = edges

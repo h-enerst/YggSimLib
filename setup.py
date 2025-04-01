@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
   name="YggSimLib",
-  version="0.93",
+  version="0.94",
   author="Håkon Enerstvedt",  
   description="A library for interfacing with the kspice API for the Yggdrasil project",
   long_description=open('README.md').read(),
