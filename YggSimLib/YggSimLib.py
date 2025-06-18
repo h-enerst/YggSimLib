@@ -137,6 +137,13 @@ class On_Off_Valve:
                 print("Object is not a Leda-Valve, Motor-Operated_Valve, PulseControlledValve, ControlValve or Block-Valve. Object is of type {}.\nNo further operations on object allowed.".format(self.v.type))
                 self.v = False
     
+    def set(self, prop, value, unit=False):
+        self.tl.set_value(self.app, self.v.name + ":" + prop, value, unit=unit)
+
+    def get(self, prop, unit=False):
+        return self.tl.get_value(self.app, self.v.name + ":" + prop, unit=unit)
+        
+    
     def _search_application_(self, tag):
         """ Returns the application name where tag can be found """
         for application in self.tl.applications:
@@ -275,6 +282,12 @@ class Motor_Heater:
             except:
                 return False       
     
+    def set(self, prop, value, unit=False):
+        self.tl.set_value(self.app, self.m.name + ":" + prop, value, unit=unit)
+
+    def get(self, prop, unit=False):
+        return self.tl.get_value(self.app, self.m.name + ":" + prop, unit=unit)
+    
     def start(self):
         
         """ Switch on the motor/element """
@@ -366,6 +379,13 @@ class PID:
             except:
                 return False   
     
+    
+    def set(self, prop, value, unit=False):
+        self.tl.set_value(self.app, self.c.name + ":" + prop, value, unit=unit)
+
+    def get(self, prop, unit=False):
+        return self.tl.get_value(self.app, self.c.name + ":" + prop, unit=unit)
+        
     def get_mode(self):
         """
         Returns text representation of the current mode
@@ -499,6 +519,12 @@ class Choke:
             except:
                 return False       
     
+    def set(self, prop, value, unit=False):
+        self.tl.set_value(self.app, self.c.name + ":" + prop, value, unit=unit)
+
+    def get(self, prop, unit=False):
+        return self.tl.get_value(self.app, self.c.name + ":" + prop, unit=unit)    
+    
     def move_to(self, pos):
         """
         Wrapper that moves a choke object to a desired position.  
@@ -587,6 +613,13 @@ class Transmitter:
                 
             except:
                 return False   
+
+    def set(self, prop, value, unit=False):
+        self.tl.set_value(self.app, self.t.name + ":" + prop, value, unit=unit)
+
+    def get(self, prop, unit=False):
+        return self.tl.get_value(self.app, self.t.name + ":" + prop, unit=unit)    
+    
     def get_value(self, unit):
         return self.tl.get_value(self.app, self.t.name + ":MeasuredValue", unit=unit)
 
@@ -596,22 +629,28 @@ class YggLCS:
 
     Args:
         run (bool, optional): If True, starts the simulation immediately after loading.
+        model (string, optional): Path to model directory. If False, UI activates to select model directory.
+        tl (string, optional): Timeline to be activated. If false, UI activates to allow user to select among available timelines
+        mpc (list, optional): List with name of model, parameter and condition files to load.  If false, UI activates to allow user to select among available files.
     """
-    def __init__(self, run = False):
+    def __init__(self, model = False, tl = False, mpc = False, run = False):
 
         root = Tk()
         root.withdraw()
 
-        self.model = filedialog.askdirectory(**{"title":"Please select model directory"})
+        self.model = model or filedialog.askdirectory(**{"title":"Please select model directory"})
         self.sim = kspice.Simulator(self.model)
-        self.tl = _askTimeline(root, "Timelines", self.sim.timelines).tl.get()
+        self.tl = tl or _askTimeline(root, "Timelines", self.sim.timelines).tl.get()
         self.timeline = self.sim.timelines[self.tl]
         self.timeline.activate()
-        files = _askFiles(root, "Files", self.timeline.models, self.timeline.parameters, self.timeline.initial_conditions)
-        self.model = files.m.get()
-        self.parameter = files.p.get()
-        self.ic = files.i.get()
-        self.timeline.load(self.timeline.models[self.model], self.timeline.parameters[self.parameter], self.timeline.initial_conditions[self.ic])
+        if not mpc:
+            files = _askFiles(root, "Files", self.timeline.models, self.timeline.parameters, self.timeline.initial_conditions)
+            self.model = files.m.get()
+            self.parameter = files.p.get()
+            self.ic = files.i.get()
+            self.timeline.load(self.timeline.models[self.model], self.timeline.parameters[self.parameter], self.timeline.initial_conditions[self.ic])
+        else:
+            self.timeline.load(self.timeline.models[mpc[0]], self.timeline.parameters[mpc[1]], self.timeline.initial_conditions[mpc[2]])
         self.timeline.initialize()
         if run:
             self.timeline.run()
@@ -658,6 +697,27 @@ class YggLCS:
         self.timeline.pause()
     def close_project(self):
         self.sim.close_project()
+
+    def set(self, tag, prop, value, unit=False):
+        """ Set a property for a given tag. """
+        app = self._search_application_(tag)
+        self.tl.set_value(app, tag + ":" + prop, value, unit=unit)
+
+    def get(self, tag, prop, unit=False):
+        """ Get the value of a property of a given tag. """
+        app = self._search_application_(tag)
+        return self.tl.get_value(app, tag + ":" + prop, unit=unit)
+    
+    def _search_application_(self, tag):
+        """ Returns the application name where tag can be found """
+        for application in self.tl.applications:
+            try:
+                temp = self.tl.get_block(application.name, tag)
+                #print("{} found in application {}".format(tag, application.name))
+                return application.name
+                
+            except:
+                return False
 
 class Sequence:
     """
